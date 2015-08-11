@@ -20,7 +20,7 @@ router.post('/facebook',
 );
 //MAIN SWIPING SCREEN
 router.get('/pic',function(req,res){
-  res.render('picTest',{unseen:JSON.stringify(req.user.unseen)});
+  res.render('pic',{unseen:JSON.stringify(req.user.unseen)});
 });
 //SCHEDULE SCREEN
 router.get('/schedule',function(req,res){
