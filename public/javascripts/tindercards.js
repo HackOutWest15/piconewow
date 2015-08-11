@@ -33,8 +33,8 @@ Tindercardsjs = (function () {
     this.tojQuery = function () {
       if (!jqo) {
         var str  = '<section class="Show-main"><div class="u-center-vertical-wrap"><div class="u-center-vertical"><div class="Show"> <div class="flip-container" style="pointer:cursor;"> <div class="flipper">'; 
-        str +='<section class="Show-cover front""><section class="Artist-img"><img src="'+artistImgPath+'"></section><!-- .Artist-img -->';
-        str +='<section ="artist-box"><div><h3>'+artist+'</h3><p>'+stage+startTime+'</p></section><!-- .artist-box --> </section><section class="Show-info back">';
+        str +='<section class="Show-cover front""><section class="Artist-img"><div class="artist-image-div" style="background: url('+artistImgPath+');"></div></section><!-- .Artist-img -->';
+        str +='<section ="Artist-box"><div><h2>'+artist+'</h2><p>Stage: \t<span style="font-weight: bold; font-size:20px;">'+stage+'</span><br />Start time:\t<span style="font-weight: bold; font-size:20px;">'+startTime+'</span></p></section><!-- .artist-box --> </section><section class="Show-info back">';
         str+='<section class="Artist-details"> <p class="truncate"> '+artistBio+'</p> </section> <!-- .Artist-details -->';
         str+='"</section> <!-- .Artist-info --> </div> <!-- .flipper --> </div> <!-- .flip-container --> </div></div></div></section>';
   
