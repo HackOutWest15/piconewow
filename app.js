@@ -121,13 +121,38 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-//loadSchedule();
+loadSchedule();
 
 //schedule add script
 function loadSchedule(){
+    loadThursday();
+    loadFriday();
+    loadSaturday();
+}
+function loadThursday(){
     var thursday = require('./data/thursday.js');
     for(var i = 0; i<thursday.length;i++){
         var showData = thursday[i];
+        var show = new Show(showData);
+        show.save(function(err, newShow){
+            if (err) return console.error(err);
+        });
+    }
+}
+function loadFriday(){
+    var friday = require('./data/friday.js');
+    for(var i = 0; i<friday.length;i++){
+        var showData = friday[i];
+        var show = new Show(showData);
+        show.save(function(err, newShow){
+            if (err) return console.error(err);
+        });
+    }
+}
+function loadSaturday(){
+    var saturday = require('./data/saturday.js');
+    for(var i = 0; i<saturday.length;i++){
+        var showData = saturday[i];
         var show = new Show(showData);
         show.save(function(err, newShow){
             if (err) return console.error(err);
