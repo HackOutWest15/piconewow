@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User 	= require('../schemas/user.js'); 
 var passport = require('passport');
+var _ = require('underscore');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -22,8 +23,36 @@ router.get('/pic',function(req,res){
 });
 //SCHEDULE SCREEN
 router.get('/schedule',function(req,res){
-  //TODO
-  res.render('schedule',{});
+  User.findById(req.user._id,function(err,user){
+    var picked = user.picked;
+    for (var s = 0; s<picked.length;s++){
+      var show = picked[s];
+      picked[s].collisionCount = 0;
+      for(var c = 0; c<show.collisions.length;c++){
+        var collision = show.collisions[c];
+        for(var p = 0; p<picked.length;p++){
+          var possibleCollision = picked[p];
+          if(possibleCollision.showId==collision){
+            picked[s].collisionCount +=1;
+          }
+        }
+      }
+    }
+    var thursday = _.filter(picked,function(show){
+      return show.day == "THURSDAY"
+    });
+    var friday = _.filter(picked,function(show){
+      return show.day == "FRIDAY"
+    });
+    var saturday = _.filter(picked,function(show){
+      return show.day == "SATURDAY"
+    });
+    res.render('schedule',{
+      thursday:JSON.stringify(thursday),
+      friday:JSON.stringify(friday),
+      saturday:JSON.stringify(saturday),
+    });
+  });
 });
 
 //LIKE FUNC

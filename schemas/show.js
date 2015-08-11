@@ -10,7 +10,7 @@ var showSchema = mongoose.Schema({
         duration: Number,
         stage: String,
         collisions: [Number],
-		collitionCount:{type:Number,default:0}
+        collisionCount:Number
 });
 showSchema.plugin(findOrCreate);
 /*userSchema.statics.newUser = function(username, callback){

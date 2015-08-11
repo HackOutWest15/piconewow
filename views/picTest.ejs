@@ -8,6 +8,7 @@
 <script>
 	function likeFirst(){
 		var jsonData = {show:JSON.stringify(unseen[0])};
+		unseen.shift();
         $.post('/like',jsonData,function(data){
 			console.log('success');
           }).error(function(err){
@@ -16,6 +17,7 @@
 	}
 	function skipFirst(){
 		var jsonData = {show:JSON.stringify(unseen[0])};
+		unseen.shift();
         $.post('/skip',jsonData,function(data){
 			console.log('success');
           }).error(function(err){
@@ -26,3 +28,4 @@
 
 <button onClick="likeFirst()">LIKE FIRST</button>
 <button onClick="skipFirst()">SKIP FIRST</button>
+<button onClick="window.location.href='/schedule'">SCHEDULE</button>
