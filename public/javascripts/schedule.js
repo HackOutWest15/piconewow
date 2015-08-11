@@ -18,7 +18,17 @@ function renderDay(day){
 		var time = show.startTime.split('.');
 		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 800;
 		var showTop = 2 * showStartMin;
-		var showHTML = "<div class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'><h3>"+show.artist+"</h3><span>"+show.startTime+"</span><span class='stage-text'>"+show.stage+"</span></div></div>";
+		var showHTML = "<div class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
+		if(show.friends.length>0){
+			var friendsHTML = "<div class='friends-row-wrapper'><div id='friends-row'>"
+			for(var f = 0;f<show.friends.length;f++){
+				var url = "http://graph.facebook.com/" + show.friends[f].facebookId + "/picture?type=large";
+				friendsHTML +="<div class='friend-circle' style='background-image:url("+url+")'></div>";
+			}
+			friendsHTML+="</div></div>"
+			showHTML+=friendsHTML;
+		}
+		showHTML+="<h3>"+show.artist+"</h3><span>"+show.startTime+"</span><span class='stage-text'>"+show.stage+"</span></div></div>";
 		schedule.append(showHTML);
 	}
 }

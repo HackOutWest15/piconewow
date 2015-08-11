@@ -14,7 +14,6 @@ router.post('/facebook',
   passport.authenticate('facebook-token'),
   function (req, res) {
     // do something with req.user
-    console.log(req.user);
     res.send(req.user);
   }
 );
