@@ -1,12 +1,24 @@
-<html>
+<html id="login">
 <head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1638718853011507&version=v2.0"></script>
-		<script src="javascripts/login.js"></script>
+	<title>PicOne - Way out West</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1638718853011507&version=v2.0"></script>
+	<script src="javascripts/login.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
-<body>
-	<h3>ONLINE</h3>
-	<button onClick="loginClick()">LOGIN</button>
+<body >
+	<div id="loginCard">
+		<h1>PicOne</h1>
+		<h2>Way out West edition</h2>
+		<button id="loginButton"onClick="loginClick()">LOGIN</button>
+		<p>Create your own personalised schedule for the festival and see what your friends are watching</p> 
+		<p id="loginFooter">Want to choose movies with friends? Check out <a href="www.picone.se">PicOne</a></p>
+	</div>
 </body>
 
 </html>
