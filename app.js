@@ -8,6 +8,7 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var User = require('./schemas/user.js');
+var Show = require('./schemas/show.js');
 
 
 //Facebook code
@@ -59,8 +60,7 @@ passport.use(new FacebookTokenStrategy({
         // if there is an error, stop everything and that 
         // ie an error connecting to the database
         if (err)
-            return done(err);
-        
+            return done(err);  
         // if the user is found, then log htem in
         if (user) {
             return done(null, user); // user found, return that user
@@ -72,14 +72,15 @@ passport.use(new FacebookTokenStrategy({
             newUser.facebook.token  = accessToken; // we will save the token that facebook provides to the user
             newUser.facebook.name   = profile.displayName; // look at the passport user profle to see how names are returned
             newUser.facebook.email  = profile.emails[0].value;  // facebook can return multiple emails so w'll take the first
-            
-            // save the user to the database
-            newUser.save(function(err) {
-                if (err)
-                    return done(err);
-                
-                //if successful, return the new user
-                return done(null, newUser);
+            Show.find({},function(err,shows){
+                newUser.unseen = shows;
+                // save the user to the database
+                newUser.save(function(err) {
+                    if (err)
+                        return done(err);
+                    //if successful, return the new user
+                    return done(null, newUser);
+                });
             });
         }
     });
@@ -120,6 +121,19 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+//loadSchedule();
+
+//schedule add script
+function loadSchedule(){
+    var thursday = require('./data/thursday.js');
+    for(var i = 0; i<thursday.length;i++){
+        var showData = thursday[i];
+        var show = new Show(showData);
+        show.save(function(err, newShow){
+            if (err) return console.error(err);
+        });
+    }
+}
 
 
 module.exports = app;

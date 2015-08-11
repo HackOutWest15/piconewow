@@ -1,0 +1,28 @@
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+	var unseenStr = '<%-unseen%>';
+	var unseen = JSON.parse(unseenStr);
+</script>
+
+<script>
+	function likeFirst(){
+		var jsonData = {show:JSON.stringify(unseen[0])};
+        $.post('/like',jsonData,function(data){
+			console.log('success');
+          }).error(function(err){
+			console.log(err);
+        });
+	}
+	function skipFirst(){
+		var jsonData = {show:JSON.stringify(unseen[0])};
+        $.post('/skip',jsonData,function(data){
+			console.log('success');
+          }).error(function(err){
+			console.log(err);
+        });
+	}
+</script>
+
+<button onClick="likeFirst()">LIKE FIRST</button>
+<button onClick="skipFirst()">SKIP FIRST</button>
