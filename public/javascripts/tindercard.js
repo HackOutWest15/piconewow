@@ -1,26 +1,3 @@
-
-var genreLogoStrings = {
-  Action : '<img src="img/genres/action-dark.png">',
-  Comedy : '<img src="img/genres/comedy-dark.png">',
-  Adventure : '<img src="img/genres/adventure-dark.png">',
-  Animation : '<img src="img/genres/animation-dark.png">',
-  Crime : '<img src="img/genres/crime-dark.png">',
-  Documentary : '<img src="img/genres/documentary-dark.png">',
-  Drama : '<img src="img/genres/drama-dark.png">',
-  Family : '<img src="img/genres/family-dark.png">',
-  Fantasy : '<img src="img/genres/fantasy-dark.png">',
-  Horror : '<img src="img/genres/horror-dark.png">',
-  Mystery : '<img src="img/genres/mystery-dark.png">',
-  Romance : '<img src="img/genres/romance-dark.png">',
-  Thriller : '<img src="img/genres/thriller-dark.png">',
-  War : '<img src="img/genres/war-dark.png">',
-  Western : '<img src="img/genres/western-dark.png">',
-  "Science Fiction" : '<img src="img/genres/scifi-dark.png">',
-  Music:'',
-  "TV Movie":'',
-  Foreign:'',
-  History:''
-}
 /*jslint browser: true*/
 /*global console, Hammer, $*/
 
@@ -44,7 +21,7 @@ Tindercardsjs = (function () {
    * @memberof module:Tindercardsjs
    * @class
    */
-  exports.card = function (cardid, title,genre,rating,runningTime,release, desc, imgpath,trailerpath,actors) {
+  exports.card = function (cardid, showId, artist, stage, startTime, artistBio, artistImgPath) { //cardid, title,genre,rating,runningTime,release, desc, imgpath,trailerpath,actors
     var jqo;
     /**
      * Returns a jQuery representation of this card
@@ -55,23 +32,11 @@ Tindercardsjs = (function () {
      */
     this.tojQuery = function () {
       if (!jqo) {
-        var str  = '<section class="Movie-main"><div class="u-center-vertical-wrap"><div class="u-center-vertical"><div class="Movie"> <div class="flip-container" style="pointer:cursor;"> <div class="flipper"> <section class="Movie-cover front""><img src="https://image.tmdb.org/t/p/'+IMG_SIZE+imgpath+'"></section> <section class="Movie-info back"> <section class="Cast">';
-        var actorsToDraw = (actors.length<3) ? actors.length : 3;
-        var genresToDraw =genre.length%5;
-        var yearToDraw = new Date(release).getFullYear();
-        for(var i = 0; i<actorsToDraw;i++){
-          str+='<div class="Cast-member"> <img src="'+ ((actors[i].poster) ? ('https://image.tmdb.org/t/p/'+actorImgSize+actors[i].poster) : '/img/no_actor.png')+'"> <h5 class="Cast-name">'+actors[i].name+'</h5> </div>';
-        }
-
-        str+=' </section> <!-- .Cast --> <section class="Movie-details"><div class="Movie-extras"><h4>'+rating+'</h4> /10<h5>'+yearToDraw+'</h5></div><div class="Movie-genre">'+ ((genre.length>0)?genre[0].name:"");
-        for(var g = 1;g<genresToDraw;g++){
-          //str+=(genreLogoStrings[genre[g]])?genreLogoStrings[genre[g]]:'';
-          str+=(", "+genre[g].name);
-        }
-        str+='</div></section><section class="Movie-plot"> <p class="truncate"> '+desc+'</p> </section> <!-- .Movie-plot --> <footer class="Movie-footer"> <button onClick="';
-        //str+= "window.open('https://www.youtube.com/watch?v="+trailerpath+"');";
-        str+= "openInIframe('https://www.youtube.com/embed/"+trailerpath+"?rel=0&showinfo=0');var event = arguments[0] || window.event; event.stopPropagation();";
-        str+='" class="Button">Watch trailer</button> </footer> </section> <!-- .Movie-info --> </div> <!-- .flipper --> </div> <!-- .flip-container --> </div></div></div></section>';
+        var str  = '<section class="Show-main"><div class="u-center-vertical-wrap"><div class="u-center-vertical"><div class="Show"> <div class="flip-container" style="pointer:cursor;"> <div class="flipper">'; 
+        str +='<section class="Show-cover front""><section class="Artist-img"><img src="'+artistImgPath+'"></section>!-- .Artist-img -->';
+        str +='<section ="artist-box"><div><h3>'+artist+'</h3><p>'+stage+\t+startTime+'</p></section><!-- .artist-box --> <section class="Show-info back">';
+        str+='<section class="Artist-details"> <p class="truncate"> '+artistBio+'</p> </section> <!-- .Artist-details -->';
+        str+='"</section> <!-- .Artist-info --> </div> <!-- .flipper --> </div> <!-- .flip-container --> </div></div></div></section>';
   
         //jqo = $('<div class="tc-card">').attr('data-cardid', cardid).html('<div class="tc-card-img-cont"><img src="' + imgpath + '" class="tc-card-img"><div class="tc-card-body"><h2 class="tc-card-name">' + title + '</h2><span class="tc-card-desc">' + desc + '</span></div></div>');
         jqo = $('<div class="tc-card">').attr('data-cardid', cardid).html(str);

@@ -7,7 +7,7 @@ html#login {
 
 body {
   padding: 50px;
-  font:"Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Courier New, Courier, monospace;
 }
 h1 {
   font-family: "Pacifico", "Helvetica", sans-serif;
@@ -16,7 +16,9 @@ h1 {
 	background: rgba(0, 0, 0, 0.7);
 	color: white;
 	text-align: center;	
-	height: 100%;
+	padding-bottom: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
 
 }
 #loginButton{
@@ -43,3 +45,93 @@ h1 {
 a {
   color: #00B7FF;
 }
+.Show-main {
+  height: 89vh;
+  width: 100%; }
+
+.Show {
+  color: white;
+  margin: 0 auto;
+  width: 100%; }
+
+.Show-details {
+  margin: 0 0 15px 0;
+  padding-top: 10px;
+  width: 100%; }
+
+.Show-genre {
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 6px;
+  width: 70%; }
+
+.Show-extras {
+  float: left;
+  text-align: left;
+  width: 30%; }
+  .Show-extras h4, .Show-extras h5 {
+    margin: 0; }
+  .Show-extras h4 {
+    font-weight: 700;
+    font-size: 22px;
+    display: inline; }
+  .Show-extras h5 {
+    font-weight: 300;
+    font-size: 16px; }
+
+.flipper {
+  height: 132vw;
+  width: 88vw; }
+
+.Show-cover {
+  height: 132vw;
+  width: 88vw;
+  margin: 0 auto; }
+  .Show-cover img {
+    border: 2px solid #11151F;
+    height: 132vw;
+    width: 88vw; }
+
+.Show-info {
+  background: #11151F;
+  border: 2px solid #11151F;
+  padding: 10px;
+  height: 132vw;
+  width: 88vw; }
+
+
+
+.Artist-details * {
+  font-size: 11px; }
+
+.flip-container {
+  perspective: 1000;
+  cursor: pointer; }
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative; }
+
+.flip-container, .front, .back {
+  width: 88vw;
+  height: 132vw;
+  margin: 0 auto; }
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg); }
+
+.back {
+  transform: rotateY(180deg); }
+
+.flipper.is-flipped {
+  transform: rotateY(180deg); }
