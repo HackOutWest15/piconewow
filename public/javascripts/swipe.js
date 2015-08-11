@@ -1,4 +1,4 @@
-    var artistBio = "Artist BIO: Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ";
+    //var artistBio = "Artist BIO: Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ";
     //var artistImgPath = "images/FirstAidKit_1.jpg";
     var clickOrTouch = (('ontouchend' in window)) ? 'touchend' : 'click';
     var seen= [];
@@ -8,7 +8,7 @@ function popShow(){
     seen.push(show);
     var cards = [];
     console.log(show);
-    cards.push(new Tindercardsjs.card(show.showId, show.showId, show.artist, show.stage, show.startTime, artistBio,show.artistImgPath));
+    cards.push(new Tindercardsjs.card(show.showId, show.showId, show.artist, show.stage, show.startTime, show.artistBio,show.artistImgPath));
     Tindercardsjs.render(cards, $('#Screen'), swipeCallback,animation);
     $(".flip-container").off(clickOrTouch);
     $(".flip-container").on(clickOrTouch,function(e) {
