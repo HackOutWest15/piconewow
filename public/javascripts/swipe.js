@@ -54,7 +54,9 @@ function swipeCallback(event){
 	        });
     	}
     }
-    popShow();
+    	loadArtistData(0, function(){
+    		popShow();
+    	});
   }
 }
 

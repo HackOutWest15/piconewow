@@ -73,7 +73,7 @@ var thursday = [
     },
     {
         "showId": 113,
-        "artist": "ILOVEMAKONNNEN",
+        "artist": "ILOVEMAKONNEN",
         "day": "THURSDAY",
         "startTime": "18.40",
         "stopTime": "19.40",

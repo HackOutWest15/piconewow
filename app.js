@@ -121,7 +121,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-loadSchedule();
+//loadSchedule();
 
 //schedule add script
 function loadSchedule(){

@@ -5,9 +5,6 @@ $(document).ready(function () {
 			$(".flipper").toggleClass("is-flipped");
 		});*/
 	});
-	for(var i = 0; i < 5; i++){
-
-	}
 
 
 });
