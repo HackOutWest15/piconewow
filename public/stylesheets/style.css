@@ -99,8 +99,8 @@ a {
 
 .artist-image-div{
 	background-size: cover!important;
-	background-position: center;
-	height: 90vw;
+	background-position: center !important;
+	height: 80vw;
 	width: 88vw;
 }
 .flipper {
@@ -125,7 +125,7 @@ a {
   margin: 0 auto; }
 
 .Artist-img {
-	height: 90vw;
+	height: 80vw;
 	width: 88vw;
 }
 .Artist-box {
