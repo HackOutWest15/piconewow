@@ -45,12 +45,28 @@ h1 {
 a {
   color: #00B7FF;
 }
+.feedback-box {
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 40%; }
+
+#feedback-no {
+  pointer-events: none;
+  left: calc(50% - 50px); }
+
+#feedback-yes {
+  pointer-events: none;
+  right: calc(50% - 50px); }
+
+
 .Show-main {
   height: 89vh;
   width: 100%; }
 
 .Show {
-  color: white;
+  color: black;
   margin: 0 auto;
   width: 100%; }
 
@@ -104,6 +120,7 @@ a {
 
 
 .Artist-details * {
+  color: white;
   font-size: 11px; }
 
 .flip-container {
