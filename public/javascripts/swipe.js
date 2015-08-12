@@ -93,7 +93,7 @@ function playBtnClick(event){
   playBtn.off('click');
   playBtn.on('click',stopBtnClick);
   seen[seen.length-1].audio.play();
-  event.stopPropagation();
+  event.stopImmediatePropagation()
 }
 function stopBtnClick(event){
   $(".play-btn").text(' ►');
@@ -101,9 +101,9 @@ function stopBtnClick(event){
   playBtn.off('click');
   playBtn.on('click',playBtnClick);
   seen[seen.length-1].audio.pause();
-  event.stopPropagation();
+  event.stopImmediatePropagation()
 }
 function goToSchedule(event){
-  event.stopPropagation();
+  event.stopImmediatePropagation()
   window.location.href = '/schedule';
 }
