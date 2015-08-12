@@ -193,3 +193,42 @@ a {
 .listen-logo{
   display:inline-block;
 }
+.Wizard-box {
+  display: none;
+  content: "";
+  background: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; }
+
+.Wizard-content {
+  font-size: 20px;
+  padding: 0 10vw; }
+  .Wizard-content h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px; }
+
+.Wizard-row {
+  width: 100%;
+  margin-bottom: 30px; }
+
+.Wizard-text {
+  float: left;
+  width: 75%; }
+
+.Wizard-text-full {
+  width: 100%;
+  margin-bottom: 50px; }
+
+.Wizard-img {
+  float: left;
+  width: 20%%; }
+  .Wizard-img:nth-of-type(even) {
+    padding-left: 0; }
+  .Wizard-img img {
+    height: 50px; }
