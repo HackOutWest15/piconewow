@@ -1,9 +1,12 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
-	renderDay(thursday);
+	renderDay(thursday,'thursday');
 });
-function renderDay(day){
+function renderDay(day,dayName){
 	var schedule = $('#schedule');
+	var menuStr = "#"+dayName;
+	$('.active-menu-item').removeClass('active-menu-item');
+	$(menuStr).addClass('active-menu-item');
 	schedule.empty();
 	for(var i = 0; i<day.length;i++){
 		var show = day[i];
