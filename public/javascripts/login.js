@@ -6,7 +6,7 @@ function loginClick(evt){
         var jsonData = {access_token:res.authResponse.accessToken};
         $.post('/facebook',jsonData,function(data){
             MYUSER = data;
-            console.log('myUser: ',data);
+
             window.location.href = '/pic';
           }).error(function(err){
         });

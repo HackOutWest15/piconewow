@@ -1,3 +1,15 @@
+a{
+  text-decoration: none;
+}
+a:link{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+a:active{
+  text-decoration: none;
+}
 html.stage {
   box-sizing: border-box;
   width: 100vw;
@@ -183,7 +195,7 @@ a {
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg); }
 .Button-small {
-    width: 150px;
+    width: 33vw;
 }
 .Button-rounded {
     background-color: #11151f;
@@ -206,6 +218,7 @@ a {
     font-weight: 300;
     padding-top: 12.5px;
     font-size: 20px;
+    text-decoration: none;
 }
 .listen-logo{
   display:inline-block;
@@ -317,4 +330,7 @@ a {
 }
 #button-play{
 	display: inline-block;
+}
+#button-login{
+  background-color:#3498db ; 
 }

@@ -7,7 +7,6 @@ function popShow(){
     var show = unseen.shift();
     seen.push(show);
     var cards = [];
-    console.log(show);
     cards.push(new Tindercardsjs.card(show.showId, show.showId, show.artist, show.day, show.stage, show.startTime, show.artistBio,show.artistImgPath, show.friends));
     Tindercardsjs.render(cards, $('#Screen'), swipeCallback,animation);
     $(".flip-container").off(clickOrTouch);
@@ -15,6 +14,7 @@ function popShow(){
       $(".flipper").toggleClass("is-flipped");
     });
     $("#button-play").on('click',playBtnClick);
+    $("#button-card-schedule").on('click',goToSchedule);
     if(show[0]){
       var img = new Image();
       img.src = 'https://image.tmdb.org/t/p/'+IMG_SIZE+movies[0].poster;
@@ -39,7 +39,6 @@ function swipeCallback(event){
       // postToServer('/api/hateMovie',JSON.stringify({movieid:event.cardid}),function(data){
       //   handleNewMovies(data.movies);
       //});
-    	console.log(show);
     	if(show.length > 0){
         show[0].friends = [];
     		var jsonData = {show:JSON.stringify(show[0])};
@@ -60,6 +59,7 @@ function swipeCallback(event){
 	        });
     	}
     }
+    if(unseen.length>0){
       seen[seen.length-1].audio.pause();
       if(unseen[0] &&!unseen[0].audio){
   			loadArtistData(0,function(){
@@ -68,11 +68,13 @@ function swipeCallback(event){
   		}else{
         popShow();
       }
+    }else{
+      $('#Finished-swiping-box').fadeIn();
+    }
   }
 }
 
 function animation(direction){
-      console.log(direction);
   switch(direction){
     case "left":
         $("#feedback-no").show();
@@ -99,4 +101,8 @@ function stopBtnClick(event){
   playBtn.on('click',playBtnClick);
   seen[seen.length-1].audio.pause();
   event.stopPropagation();
+}
+function goToSchedule(event){
+  event.stopPropagation();
+  window.location.href = '/schedule';
 }

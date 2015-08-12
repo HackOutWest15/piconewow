@@ -36,7 +36,6 @@ function loadArtistData(index,callback){
 			var img = new Image();
 			img.src=data.artists.items[0].images[1].url;
 			unseen[index].artistImgPath = data.artists.items[0].images[0].url;
-			console.log("Artist Data : ",data.artists.items[0]);
 			var artistId = data.artists.items[0].id;
 			$.ajax({
 				url: "http://developer.echonest.com/api/v4/artist/biographies?api_key=BKTYVQYVRUPS203VV&id=spotify:artist:"+artistId+"&format=json&results=1&start=0&license=cc-by-sa",

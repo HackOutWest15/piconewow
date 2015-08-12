@@ -5,7 +5,6 @@ auth.loggedIn = function loggedIn(req, res, next) {
     if (req.user) {
         next();
     }else {
-        console.log('else');
         if(req.path!='/')
             res.redirect('/');
         else{

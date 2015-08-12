@@ -3,6 +3,7 @@ body{
 	background-repeat: repeat-y;
 	margin:0;
 	height:1200px;
+	    font-family: Courier New,Courier,monospace;
 }
 .show-div{
 	height:120px;
@@ -80,4 +81,53 @@ vertical-align: middle;
 	position: absolute;
 	top:40px;
 	left:10px;
+}
+#bottom-menu{
+	width: 100%;
+	display: block;
+	float:left;
+	margin-top:1250px;
+	text-align: center
+}
+.Button-small {
+    width: 33vw;
+}
+.Button-rounded {
+    background-color: #11151f;
+    border: medium none;
+    border-radius: 25px;
+    height: 50px;
+    margin: 10px auto 0;
+    padding: 0;
+    text-align: center;
+}
+.Button {
+/*    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
+    border: medium none;
+    color: white;
+    font-size: 17px;
+    outline: medium none;
+
+}
+.Button-text-center {
+    font-weight: 300;
+    padding-top: 12.5px;
+    font-size: 20px;
+}
+#button-back, #button-clear-schedule{
+	display: inline-block;
+	margin: 5px 5px 5px 5px;
+	background:rgba(0,0,0,0.9);
+}
+a{
+  text-decoration: none;
+}
+a:link{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+a:active{
+  text-decoration: none;
 }
