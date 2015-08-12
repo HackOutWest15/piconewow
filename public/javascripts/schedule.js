@@ -1,9 +1,11 @@
-// A $( document ).ready() block.
+// A $( document ).ready() block.\
+var currentDay;
 $( document ).ready(function() {
 	renderDay(thursday,'thursday');
 });
 function renderDay(day,dayName){
 	var schedule = $('#schedule');
+	currentDay = day;
 	var menuStr = "#"+dayName;
 	$('.active-menu-item').removeClass('active-menu-item');
 	$(menuStr).addClass('active-menu-item');
@@ -21,7 +23,7 @@ function renderDay(day,dayName){
 		var time = show.startTime.split('.');
 		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
 		var showTop = 2 * showStartMin;
-		var showHTML = "<div class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
+		var showHTML = "<div id='"+show.showId+"' class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
 		if(show.friends.length>0){
 			var friendsHTML = "<div class='friends-row-wrapper'><div id='friends-row'>"
 			for(var f = 0;f<show.friends.length;f++){
@@ -33,6 +35,7 @@ function renderDay(day,dayName){
 		}
 		showHTML+="<h3>"+show.artist+"</h3><span>"+show.startTime+"</span><span class='stage-text'>"+show.stage+"</span></div></div>";
 		schedule.append(showHTML);
+		$('.show-div').on('click',showClick);
 	}
 }
 function clearClick(){
@@ -47,4 +50,13 @@ function clearSchedule(){
       }).error(function(err){
 		console.log(err);
     });
+}
+function showClick(event){
+	for(var i = 0;i<currentDay.length;i++){
+		if(currentDay[i].showId==parseInt(event.currentTarget.id)){
+			fetchArtistData(currentDay[i],function(fetchedShow){
+				fetchedShow.audio.play();
+			});
+		}
+	}
 }
