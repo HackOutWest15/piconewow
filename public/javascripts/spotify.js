@@ -28,7 +28,7 @@ function loadArtistData(index,callback){
 		success:function(data){
 			var img = new Image();
 			img.src=data.artists.items[0].images[1].url;
-			unseen[index].artistImgPath = data.artists.items[0].images[1].url;
+			unseen[index].artistImgPath = data.artists.items[0].images[0].url;
 			console.log("Artist Data : ",data.artists.items[0]);
 			var artistId = data.artists.items[0].id;
 			$.ajax({

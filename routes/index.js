@@ -4,6 +4,7 @@ var User 	= require('../schemas/user.js');
 var passport = require('passport');
 var _ = require('underscore');
 var fbgraph = require('fbgraphapi');
+var Auth = require('../utils/auth');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -18,7 +19,7 @@ router.post('/facebook',
   }
 );
 //MAIN SWIPING SCREEN
-router.get('/pic',function(req,res){
+router.get('/pic',Auth.loggedIn,function(req,res){
   User.findById(req.user._id,function(err,user){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
@@ -51,7 +52,7 @@ router.get('/pic',function(req,res){
   });
 });
 //SCHEDULE SCREEN
-router.get('/schedule',function(req,res){
+router.get('/schedule',Auth.loggedIn,function(req,res){
   User.findById(req.user._id,function(err,user){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
@@ -110,13 +111,13 @@ router.get('/schedule',function(req,res){
 });
 
 //LIKE FUNC
-router.post('/like',function(req,res){
+router.post('/like',Auth.loggedIn,function(req,res){
   var show = req.body.show;
   show = JSON.parse(show);
   if(show){
       User.findByIdAndUpdate(req.user._id,{
   		$push:{picked:show},
-  		$pull:{unseen:show}
+  		$pull:{unseen:{_id:show._id}}
   	},function(err,user){
   		if(err){
   		    console.log(err);
@@ -132,13 +133,13 @@ router.post('/like',function(req,res){
 });
 
 //SKIP FUNC
-router.post('/skip',function(req,res){
+router.post('/skip',Auth.loggedIn,function(req,res){
   var show = req.body.show;
   show = JSON.parse(show);
   if(show){
       User.findByIdAndUpdate(req.user._id,{
   		$push:{skipped:show},
-  		$pull:{unseen:show}
+  		$pull:{unseen:{_id:show._id}}
   	},function(err,user){
   		if(err){
   		    console.log(err);

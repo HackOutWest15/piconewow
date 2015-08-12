@@ -38,6 +38,7 @@ function swipeCallback(event){
       //});
     	console.log(show);
     	if(show.length > 0){
+        show[0].friends = [];
     		var jsonData = {show:JSON.stringify(show[0])};
 	        $.post('/skip',jsonData,function(data){
 				console.log('success');
@@ -47,6 +48,7 @@ function swipeCallback(event){
     	}
     }else if(String(event.direction) == 'right'){
     	if(show.length > 0){
+        show[0].friends = [];
     		var jsonData = {show:JSON.stringify(show[0])};
 	        $.post('/like',jsonData,function(data){
 				console.log('success');
@@ -56,9 +58,13 @@ function swipeCallback(event){
     	}
     }
       seen[seen.length-1].audio.pause();
-    	loadArtistData(0, function(){
-    		popShow();
-    	});
+      if(!unseen[0].audio){
+  			loadArtistData(0,function(){
+          popShow();
+        });
+  		}else{
+        popShow();
+      }
   }
 }
 

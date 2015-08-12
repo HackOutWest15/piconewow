@@ -154,6 +154,18 @@ var saturday = [
 	    "collisions": [
 	        307
 	    ]
+	},
+	{
+	    "showId": 320,
+	    "artist": "SUN KIL MOON",
+	    "day": "SATURDAY",
+	    "startTime": "13.00",
+	    "stopTime": "14.00",
+	    "duration": 60,
+	    "stage": "LINNE",
+	    "collisions": [
+	        
+	    ]
 	}
 ];
 module.exports = saturday;
