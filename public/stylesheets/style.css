@@ -166,3 +166,30 @@ a {
 
 .flipper.is-flipped {
   transform: rotateY(180deg); }
+.Button-small {
+    width: 150px;
+}
+.Button-rounded {
+    background-color: #11151f;
+    border: medium none;
+    border-radius: 25px;
+    height: 50px;
+    margin: 10px auto 0;
+    padding: 0;
+    text-align: center;
+}
+.Button {
+/*    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
+    border: medium none;
+    color: white;
+    font-size: 17px;
+    outline: medium none;
+}
+.Button-text-center {
+    font-weight: 300;
+    padding-top: 12.5px;
+    font-size: 20px;
+}
+.listen-logo{
+  display:inline-block;
+}
