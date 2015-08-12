@@ -1,0 +1,41 @@
+
+function loadArtistData(index,callback){
+	var artist = unseen[index].artist;
+	var callbackCount = 0;
+	$.ajax({
+		url: "https://api.spotify.com/v1/search",
+		data: {
+		  q: artist,
+		  type:"track"
+		},
+		success:function(data){
+			var audio = new Audio();
+		  	audio.src = data.tracks.items[0].preview_url;
+		  	unseen[index].audio = audio;
+		  	if(callbackCount>0){
+		  		callback();
+		  	}else{
+		  		callbackCount++;
+		  	}
+		}
+	});
+	$.ajax({
+		url: "https://api.spotify.com/v1/search",
+		data: {
+			q: artist,
+			type:"artist"
+		},
+		success:function(data){
+			var img = new Image();
+			img.src=data.artists.items[0].images[1].url;
+			unseen[index].artistImgPath = data.artists.items[0].images[1].url;
+			console.log("ARtist Data : ",data.artists.items[0]);
+			if(callbackCount>0){
+		  		callback();
+		  	}else{
+		  		callbackCount++;
+		  	}
+
+		}
+	});
+}
