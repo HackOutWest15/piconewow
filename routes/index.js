@@ -26,6 +26,7 @@ router.get('/schedule',function(req,res){
   User.findById(req.user._id,function(err,user){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
+      if(me){
       	console.log("friends",_.pluck(me.data,'id'));
         var friends = _.pluck(me.data,'id');
         User.find({"facebook.id":{$in:friends}},function(err,users){
@@ -72,6 +73,9 @@ router.get('/schedule',function(req,res){
             saturday:JSON.stringify(saturday),
           });
         });
+      }else{
+        res.status(400).send({'message':'something went wrong'});
+      }
   	});
   });
 });

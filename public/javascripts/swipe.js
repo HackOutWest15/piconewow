@@ -14,6 +14,7 @@ function popShow(){
     $(".flip-container").on(clickOrTouch,function(e) {
       $(".flipper").toggleClass("is-flipped");
     });
+    $("#button-play").on('click',playBtnClick);
     if(show[0]){
       var img = new Image();
       img.src = 'https://image.tmdb.org/t/p/'+IMG_SIZE+movies[0].poster;
@@ -54,6 +55,7 @@ function swipeCallback(event){
 	        });
     	}
     }
+      seen[seen.length-1].audio.pause();
     	loadArtistData(0, function(){
     		popShow();
     	});
@@ -72,4 +74,20 @@ function animation(direction){
         $("#feedback-yes").fadeTo(500,0);
     break;
   }
+}
+function playBtnClick(event){
+  $(".play-btn").text(' ■');
+  var playBtn = $("#button-play");
+  playBtn.off('click');
+  playBtn.on('click',stopBtnClick);
+  seen[seen.length-1].audio.play();
+  event.stopPropagation();
+}
+function stopBtnClick(event){
+  $(".play-btn").text(' ►');
+  var playBtn = $("#button-play");
+  playBtn.off('click');
+  playBtn.on('click',playBtnClick);
+  seen[seen.length-1].audio.pause();
+  event.stopPropagation();
 }

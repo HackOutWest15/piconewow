@@ -32,7 +32,9 @@ vertical-align: middle;
 }
 #menu{
 	width: 100%;
-	opacity: 1.0;
+	background: rgba(0,0,0,0.7); 
+	height:30px;
+	padding-top:4px
 }
 #menu div{
 	float: left;
@@ -43,7 +45,7 @@ vertical-align: middle;
 }
 .menu-text{
 	opacity: 1.0;
-	font-size: 30px;
+	font-size: 22px;
 }
 #friends-row{
 	float:right;
