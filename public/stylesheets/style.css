@@ -98,7 +98,8 @@ a {
     font-size: 16px; }
 
 .artist-image-div{
-	background-size: contain!important;
+	background-size: cover!important;
+	background-position: center;
 	height: 90vw;
 	width: 88vw;
 }

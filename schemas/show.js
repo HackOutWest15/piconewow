@@ -10,7 +10,8 @@ var showSchema = mongoose.Schema({
         duration: Number,
         stage: String,
         collisions: [Number],
-        collisionCount:Number
+        collisionCount:Number,
+        friends:[{facebookId:String,name:String}]
 });
 showSchema.plugin(findOrCreate);
 /*userSchema.statics.newUser = function(username, callback){
