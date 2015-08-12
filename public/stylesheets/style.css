@@ -276,3 +276,20 @@ a {
   margin-right:2px;
   border: 1px solid white;
 }
+.Finished-swiping-box {
+  display: none;
+  content: "";
+  background: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; }
+  .Finished-text {
+  float: left;
+  width: 100%; }
+  #button-schedule{
+    background-color: mediumspringgreen;
+  }

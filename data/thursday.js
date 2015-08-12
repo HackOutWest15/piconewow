@@ -87,8 +87,8 @@ var thursday = [
         "showId": 114,
         "artist": "SUSANNE SUNDFØR",
         "day": "THURSDAY",
-        "startTime": "20.40",
-        "stopTime": "21.40",
+        "startTime": "20.15",
+        "stopTime": "21.15",
         "duration": 60,
         "stage": "LINNE",
         "collisions": [
