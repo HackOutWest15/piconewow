@@ -69,7 +69,8 @@ function swipeCallback(event){
         popShow();
       }
     }else{
-      $('#Finished-swiping-box').fadeIn();
+      console.log('finished swiping');
+      $('.Finished-swiping-box').fadeIn();
     }
   }
 }
