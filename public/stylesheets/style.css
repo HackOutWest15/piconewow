@@ -152,7 +152,7 @@ a {
 
 .flip-container, .front, .back {
   width: 88vw;
-  height: 132vw;
+  height: 90vh;
   margin: 0 auto; }
 
 .front, .back {
@@ -293,3 +293,10 @@ a {
   #button-schedule{
     background-color: mediumspringgreen;
   }
+.front-artist {
+  font-size: 4vh;
+}
+.front-text {
+  font-weight: bold;
+  font-size:3vh;
+}

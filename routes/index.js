@@ -24,7 +24,6 @@ router.get('/pic',Auth.loggedIn,function(req,res){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
       if(me){
-      	console.log("friends",_.pluck(me.data,'id'));
         var friends = _.pluck(me.data,'id');
         User.find({"facebook.id":{$in:friends}},function(err,users){
           var unseen = user.unseen;
@@ -34,11 +33,8 @@ router.get('/pic',Auth.loggedIn,function(req,res){
             for(var f = 0;f<users.length;f++){
               var friend = users[f];
               for(var fp = 0; fp<friend.picked.length;fp++){
-                console.log('friend.picked',friend.picked);
-                console.log('show.showId',show.showId);
                 if(friend.picked[fp].showId==show.showId){
-                  console.log('pushing friend');
-                  unseen[s].friends.push({facebookId:friend.facebook.id,name:friend.facebook.name});
+                   unseen[s].friends.push({facebookId:friend.facebook.id,name:friend.facebook.name});
                 }
               }
             }
@@ -57,7 +53,6 @@ router.get('/schedule',Auth.loggedIn,function(req,res){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
       if(me){
-      	console.log("friends",_.pluck(me.data,'id'));
         var friends = _.pluck(me.data,'id');
         User.find({"facebook.id":{$in:friends}},function(err,users){
           var picked = user.picked;
