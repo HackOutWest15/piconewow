@@ -58,7 +58,7 @@ function swipeCallback(event){
     	}
     }
       seen[seen.length-1].audio.pause();
-      if(!unseen[0].audio){
+      if(unseen[0] &&!unseen[0].audio){
   			loadArtistData(0,function(){
           popShow();
         });

@@ -5,9 +5,11 @@ $(document).ready(function () {
     });
 	var preloadCount = 0;
 	for(var i = 0;i<5;i++){
-		if(!unseen[i].audio){
+		if(unseen[i] && !unseen[i].audio){
 			loadArtistData(i,function(){
-				if(preloadCount>3){
+				console.log('pre count: ',preloadCount);
+				console.log('u length: ',unseen.length);
+				if(preloadCount>3 || preloadCount>unseen.length-2){
 					popShow();
 				}else{
 					preloadCount++;
