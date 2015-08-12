@@ -147,7 +147,11 @@ a {
 
 .flipper {
   transition: 0.6s;
+  -moz-transition: 0.6s;
+  -webkit-transition: 0.6s;
   transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   position: relative; }
 
 .flip-container, .front, .back {
@@ -157,19 +161,27 @@ a {
 
 .front, .back {
   backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0; }
 
 .front {
   z-index: 2;
-  transform: rotateY(0deg); }
+  transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg); }
 
 .back {
-  transform: rotateY(180deg); }
+  transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg); }
 
 .flipper.is-flipped {
-  transform: rotateY(180deg); }
+  transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg); }
 .Button-small {
     width: 150px;
 }
@@ -299,4 +311,10 @@ a {
 .front-text {
   font-weight: bold;
   font-size:3vh;
+}
+#button-card-schedule{
+	display: inline-block;
+}
+#button-play{
+	display: inline-block;
 }
