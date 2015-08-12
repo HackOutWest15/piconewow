@@ -20,6 +20,9 @@ function popShow(){
       img.src = 'https://image.tmdb.org/t/p/'+IMG_SIZE+movies[0].poster;
       images.push(img);
     }
+  }else{
+    $('Wizard-box').hide();
+    $('Finished-swiping-box').fadeIn();
   }
 }
 
