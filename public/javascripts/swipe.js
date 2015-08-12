@@ -8,7 +8,7 @@ function popShow(){
     seen.push(show);
     var cards = [];
     console.log(show);
-    cards.push(new Tindercardsjs.card(show.showId, show.showId, show.artist, show.stage, show.startTime, show.artistBio,show.artistImgPath));
+    cards.push(new Tindercardsjs.card(show.showId, show.showId, show.artist, show.day, show.stage, show.startTime, show.artistBio,show.artistImgPath, show.friends));
     Tindercardsjs.render(cards, $('#Screen'), swipeCallback,animation);
     $(".flip-container").off(clickOrTouch);
     $(".flip-container").on(clickOrTouch,function(e) {
