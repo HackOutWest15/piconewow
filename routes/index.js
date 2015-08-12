@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User 	= require('../schemas/user.js'); 
-var Show 	= require('../schemas/user.js'); 
+var Show 	= require('../schemas/show.js'); 
 var passport = require('passport');
 var _ = require('underscore');
 var fbgraph = require('fbgraphapi');
@@ -149,23 +149,23 @@ router.post('/skip',Auth.loggedIn,function(req,res){
 
 //CLEAR FUNC
 router.post('/clear',Auth.loggedIn,function(req,res){
-  Show.find({},function(err,shows){
+  Show.find({},function(err,showList){
     if(err){
     		    console.log(err);
             res.status(400).send("mongo error")
     		}
-    		else{
-          User.findByIdAndUpdate(req.user._id,{unseen:shows,picked:[],skipped:[]},function(err,user){
-          		if(err){
-          		    console.log(err);
-                  res.status(400).send("mongo error")
-          		}
-          		else{
-                
-                res.status(200).send({});
-          		}
-          	});
-    		}
+		else{
+      User.findByIdAndUpdate(req.user._id,{unseen:showList,picked:[],skipped:[]},function(err,user){
+      		if(err){
+      		    console.log(err);
+              res.status(400).send("mongo error")
+      		}
+      		else{
+            
+            res.status(200).send({});
+      		}
+      	});
+		}
   });
 });
 

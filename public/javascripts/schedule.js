@@ -35,3 +35,16 @@ function renderDay(day,dayName){
 		schedule.append(showHTML);
 	}
 }
+function clearClick(){
+	$('.Clear-schedule-box').fadeIn();
+	window.scrollTo(0, 0);
+}
+function clearSchedule(){
+	var jsonData = {clear:true};
+    $.post('/clear',jsonData,function(data){
+		console.log('success');
+		window.location.href = '/pic';
+      }).error(function(err){
+		console.log(err);
+    });
+}

@@ -23,7 +23,30 @@
 		<div id="schedule">
 		</div>
 		<div id="bottom-menu">
-			<a href="/pic"><div class="Button Button-rounded Button-small" id="button-back"  ><div class="Button-text-center">Go Pic</div></div></a><div class="Button Button-rounded Button-small" id="button-clear-schedule"><div class="Button-text-center">Clear</div></div>
+			<a href="/pic"><div class="Button Button-rounded Button-small" id="button-back"  ><div class="Button-text-center">Go Pic</div></div></a><div onClick="clearClick();"class="Button Button-rounded Button-small" id="button-clear-schedule"><div class="Button-text-center">Clear</div></div>
 		</div>
+		<div class="Clear-schedule-box">
+                <div class="u-center-vertical-wrap">
+                    <div class="u-center-vertical">
+                        <div class="Wizard-content">
+                            <h2>Clear schedule?</h2>
+                             <div class="spacer" style="height: 90px;"></div>
+                            <div class="Wizard-row">
+                                <div class="Finished-text">Are you sure you want to clear your schedule? <br/><br/></div>
+                            </div>
+
+                            <div class="Wizard-row">
+                                <div class="Finished-text">(All your hard work will be lost!)</div>
+                            </div>
+                            <div class="spacer" style="height: 120px;"></div>
+							<div style="text-align:center;">
+                            	<div onClick="clearSchedule();" class="Button Button-rounded Button-small" id="button-clear-yes"  ><div class="Button-text-center">Yes</div></div>
+								<div onClick="$('.Clear-schedule-box').hide();" class="Button Button-rounded Button-small" id="button-clear-no"  ><div class="Button-text-center">No</div></div>
+                            </div>
+							<div class="Wizard-text-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 	</body>
 </html>
