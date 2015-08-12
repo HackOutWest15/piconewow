@@ -19,7 +19,36 @@ router.post('/facebook',
 );
 //MAIN SWIPING SCREEN
 router.get('/pic',function(req,res){
-  res.render('pic',{unseen:JSON.stringify(req.user.unseen)});
+  User.findById(req.user._id,function(err,user){
+    var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
+  	fb.my.friends(function(err, me) {
+      if(me){
+      	console.log("friends",_.pluck(me.data,'id'));
+        var friends = _.pluck(me.data,'id');
+        User.find({"facebook.id":{$in:friends}},function(err,users){
+          var unseen = user.unseen;
+          for (var s = 0; s<unseen.length;s++){
+            var show = unseen[s];
+            //set friends
+            for(var f = 0;f<users.length;f++){
+              var friend = users[f];
+              for(var fp = 0; fp<friend.picked.length;fp++){
+                console.log('friend.picked',friend.picked);
+                console.log('show.showId',show.showId);
+                if(friend.picked[fp].showId==show.showId){
+                  console.log('pushing friend');
+                  unseen[s].friends.push({facebookId:friend.facebook.id,name:friend.facebook.name});
+                }
+              }
+            }
+          }   
+          res.render('pic',{unseen:JSON.stringify(unseen)});
+        });
+      }else{
+        res.status(400).send({'message':'something went wrong'});
+      }
+  	});
+  });
 });
 //SCHEDULE SCREEN
 router.get('/schedule',function(req,res){

@@ -25,7 +25,7 @@ function renderDay(day){
 				var url = "http://graph.facebook.com/" + show.friends[f].facebookId + "/picture?type=large";
 				friendsHTML +="<div class='friend-circle' style='background-image:url("+url+")'></div>";
 			}
-			friendsHTML+="</div></div>"
+			friendsHTML+="</div></div>";
 			showHTML+=friendsHTML;
 		}
 		showHTML+="<h3>"+show.artist+"</h3><span>"+show.startTime+"</span><span class='stage-text'>"+show.stage+"</span></div></div>";
