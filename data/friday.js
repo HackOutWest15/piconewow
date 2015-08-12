@@ -13,7 +13,7 @@ var friday = [
     },
     {
         "showId": 209,
-        "artist": "EMMYLOU HARRIS & RODNEY CROWELL",
+        "artist": "EMMYLOU HARRIS WITH RODNEY CROWELL",
         "day": "FRIDAY",
         "startTime": "17.30",
         "stopTime": "18.30",

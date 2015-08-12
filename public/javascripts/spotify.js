@@ -1,7 +1,11 @@
 
 function loadArtistData(index,callback){
 	var artist = unseen[index].artist;
+	var showId = unseen[index].showId;
 	var callbackCount = 0;
+	if(showId==301){
+		artist = "CHIC";
+	}
 	$.ajax({
 		url: "https://api.spotify.com/v1/search",
 		data: {
@@ -19,6 +23,9 @@ function loadArtistData(index,callback){
 		  	}
 		}
 	});
+	if(showId==209){
+		artist="EMMYLOU HARRIS";
+	}
 	$.ajax({
 		url: "https://api.spotify.com/v1/search",
 		data: {

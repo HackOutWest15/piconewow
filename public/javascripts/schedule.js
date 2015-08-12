@@ -19,7 +19,7 @@ function renderDay(day,dayName){
 			}
 		}
 		var time = show.startTime.split('.');
-		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 800;
+		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
 		var showTop = 2 * showStartMin;
 		var showHTML = "<div class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
 		if(show.friends.length>0){

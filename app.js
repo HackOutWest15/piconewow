@@ -121,8 +121,19 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+//clearDB();
 //loadSchedule();
 
+
+//Clear DB script
+function clearDB(){
+    mongoose.connection.collections['users'].drop( function(err) {
+      console.log('collection dropped');
+    });
+    mongoose.connection.collections['shows'].drop( function(err) {
+      console.log('collection dropped');
+    });
+}
 //schedule add script
 function loadSchedule(){
     loadThursday();
