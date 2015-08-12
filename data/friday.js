@@ -49,7 +49,7 @@ var friday = [
     },
     {
         "showId": 212,
-        "artist": "STURGIL SIMPSON",
+        "artist": "STURGILL SIMPSON",
         "day": "FRIDAY",
         "startTime": "13.00",
         "stopTime": "14.00",

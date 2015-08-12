@@ -117,7 +117,7 @@ router.post('/like',Auth.loggedIn,function(req,res){
   if(show){
       User.findByIdAndUpdate(req.user._id,{
   		$push:{picked:show},
-  		$pull:{unseen:show}
+  		$pull:{unseen:{_id:show._id}}
   	},function(err,user){
   		if(err){
   		    console.log(err);
@@ -139,7 +139,7 @@ router.post('/skip',Auth.loggedIn,function(req,res){
   if(show){
       User.findByIdAndUpdate(req.user._id,{
   		$push:{skipped:show},
-  		$pull:{unseen:show}
+  		$pull:{unseen:{_id:show._id}}
   	},function(err,user){
   		if(err){
   		    console.log(err);

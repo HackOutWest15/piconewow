@@ -3,13 +3,18 @@ $(document).ready(function () {
 	$('.Wizard-box').on(clickOrTouch,function(evt){
       $(this).hide();
     });
-	loadArtistData(0, function(){
-		popShow();
-
-/*		$(".flip-container").on(clickOrTouch,function(e) {
-			$(".flipper").toggleClass("is-flipped");
-		});*/
-	});
+	var preloadCount = 0;
+	for(var i = 0;i<5;i++){
+		if(!unseen[i].audio){
+			loadArtistData(i,function(){
+				if(preloadCount>3){
+					popShow();
+				}else{
+					preloadCount++;
+				}
+			});
+		}
+	}
 
 
 });
