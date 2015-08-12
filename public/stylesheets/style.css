@@ -135,8 +135,10 @@ a {
 
 .Artist-details * {
   color: white;
-  font-size: 14px; }
-
+   }
+.Artist-details p {
+  font-size: 14px;
+}
 .flip-container {
   perspective: 1000;
   cursor: pointer; }
@@ -184,6 +186,7 @@ a {
     color: white;
     font-size: 17px;
     outline: medium none;
+
 }
 .Button-text-center {
     font-weight: 300;
@@ -232,3 +235,42 @@ a {
     padding-left: 0; }
   .Wizard-img img {
     height: 50px; }
+
+.friend-list-item{
+  padding-left: 17vw;
+  padding-top: 5px;
+  width: 100%;
+  height:35px;
+}
+.friend-list-item span{
+  float: left;
+  text-align: left!important;
+  padding-left: 20px;
+  padding-top: 7px;
+}
+    #friends-row{
+  float:left;
+  margin-top: 0px;
+  display: table-cell;
+  padding-right: 5px;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  height:200px;
+  width:100%;
+}
+.friends-row-wrapper{
+  overflow-x: scroll;
+  overflow-y: hidden; 
+}
+.friend-circle{
+  background-size: contain;
+    border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+    float: left;
+    height: 30px;
+    width: 30px;
+  margin-left:2px;
+  margin-right:2px;
+  border: 1px solid white;
+}
