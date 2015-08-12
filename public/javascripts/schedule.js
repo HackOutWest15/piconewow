@@ -52,11 +52,19 @@ function clearSchedule(){
     });
 }
 function showClick(event){
+	var clickedShow = $(this);
 	for(var i = 0;i<currentDay.length;i++){
 		if(currentDay[i].showId==parseInt(event.currentTarget.id)){
-			fetchArtistData(currentDay[i],function(fetchedShow){
-				fetchedShow.audio.play();
-			});
+			if(clickedShow.hasClass('clicked')){
+				if(currentDay[i].audio){
+					currentDay[i].audio.pause();
+				}
+			}else{
+				fetchArtistData(currentDay[i],function(fetchedShow){
+					fetchedShow.audio.play();
+				});
+			}
 		}
 	}
+	clickedShow.toggleClass('clicked');
 }
