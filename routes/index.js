@@ -15,8 +15,11 @@ router.get('/', function(req, res) {
 router.post('/facebook',
   passport.authenticate('facebook-token'),
   function (req, res) {
-    // do something with req.user
-    res.send(req.user);
+    var u = req.user;
+    u.facebook.token = req.body.access_token;
+    u.save(function(err,savedUser){
+        res.send(savedUser);
+    });
   }
 );
 //MAIN SWIPING SCREEN
@@ -54,6 +57,7 @@ router.get('/schedule',Auth.loggedIn,function(req,res){
   User.findById(req.user._id,function(err,user){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
+      if(err) console.log(err);
       if(me){
         var friends = _.pluck(me.data,'id');
         User.find({"facebook.id":{$in:friends}},function(err,users){
