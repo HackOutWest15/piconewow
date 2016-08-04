@@ -257,7 +257,7 @@ a {
 
 .Wizard-img {
   float: left;
-  width: 20%%; }
+  width: 20%; }
   .Wizard-img:nth-of-type(even) {
     padding-left: 0; }
   .Wizard-img img {

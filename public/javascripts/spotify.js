@@ -37,12 +37,14 @@ function loadArtistData(index,callback){
 			img.src=data.artists.items[0].images[1].url;
 			unseen[index].artistImgPath = data.artists.items[0].images[0].url;
 			var artistId = data.artists.items[0].id;
+			var artistName = data.artists.items[0].name;
+			var artistName = artistName.replace(' ','+');
 			$.ajax({
-				url: "http://developer.echonest.com/api/v4/artist/biographies?api_key=BKTYVQYVRUPS203VV&id=spotify:artist:"+artistId+"&format=json&results=1&start=0&license=cc-by-sa",
+				url:'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+artistName+'&api_key=0cc924cd3a50a215d375c61602af1a4b&format=json',
+				//url: "http://developer.echonest.com/api/v4/artist/biographies?api_key=BKTYVQYVRUPS203VV&id=spotify:artist:"+artistId+"&format=json&results=1&start=0&license=cc-by-sa",
 				success:function(d){
-					if(d.response.biographies.length>0){
-						var bio = d.response.biographies[0];
-						unseen[index].artistBio = bio.text;
+					if(d.artist && d.artist.bio){
+						unseen[index].artistBio = d.artist.bio.summary;
 					}
 					if(callbackCount>0){
 				  		callback();
