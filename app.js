@@ -21,7 +21,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('mongodb://nextshow:ofartist@ds055792.mongolab.com:55792/heroku_14qddqt5');
+mongoose.connect('mongodb://nextshow:ofartist@ds029575.mlab.com:29575/heroku_623zkvqk');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -141,7 +141,7 @@ function loadSchedule(){
     loadSaturday();
 }
 function loadThursday(){
-    var thursday = require('./data/thursday.js');
+    var thursday = require('./data/2016/thursday.js');
     for(var i = 0; i<thursday.length;i++){
         var showData = thursday[i];
         var show = new Show(showData);
@@ -151,7 +151,7 @@ function loadThursday(){
     }
 }
 function loadFriday(){
-    var friday = require('./data/friday.js');
+    var friday = require('./data/2016/friday.js');
     for(var i = 0; i<friday.length;i++){
         var showData = friday[i];
         var show = new Show(showData);
@@ -161,7 +161,7 @@ function loadFriday(){
     }
 }
 function loadSaturday(){
-    var saturday = require('./data/saturday.js');
+    var saturday = require('./data/2016/saturday.js');
     for(var i = 0; i<saturday.length;i++){
         var showData = saturday[i];
         var show = new Show(showData);

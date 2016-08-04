@@ -1,0 +1,4 @@
+var friday = [
+    {"artist":"ANDERSON PAAK","day":"FRIDAY","duration":60},{"artist":"ANOHNI","day":"FRIDAY","duration":60},{"artist":"AURORA","day":"FRIDAY","duration":60},{"artist":"G-EAZY","day":"FRIDAY","duration":60},{"artist":"GRACE JONES","day":"FRIDAY","duration":60},{"artist":"HURULA","day":"FRIDAY","duration":60},{"artist":"JAMES BAY","day":"FRIDAY","duration":60},{"artist":"JOSE GONZALEZ","day":"FRIDAY","duration":60},{"artist":"JULIA HOLTER KAMASI WASHINGTON","day":"FRIDAY","duration":60},{"artist":"PJ HARVEY","day":"FRIDAY","duration":60},{"artist":"THE KILLS","day":"FRIDAY","duration":60},{"artist":"THE TALLEST MAN ON EARTH","day":"FRIDAY","duration":60},{"artist":"YUNG LEAN","day":"FRIDAY","duration":60},{"artist":"ZARA LARSSON","day":"FRIDAY","duration":60}
+];
+module.exports = friday;

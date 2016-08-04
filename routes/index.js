@@ -24,6 +24,7 @@ router.get('/pic',Auth.loggedIn,function(req,res){
   User.findById(req.user._id,function(err,user){
     var fb = new fbgraph.Facebook(req.user.facebook.token, 'v2.2');
   	fb.my.friends(function(err, me) {
+      console.log(err);
       if(me){
         var friends = _.pluck(me.data,'id');
         User.find({"facebook.id":{$in:friends}},function(err,users){
