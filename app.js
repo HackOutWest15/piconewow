@@ -121,8 +121,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-//clearDB();
-//loadSchedule();
+clearDB();
+loadSchedule();
 
 
 //Clear DB script

@@ -12,6 +12,8 @@ function renderDay(day,dayName){
 	schedule.empty();
 	for(var i = 0; i<day.length;i++){
 		var show = day[i];
+		show.startTime = show.startTime ? show.startTime : 'TBA';
+		show.stage = show.stage ? show.stage : 'TBA';
 		var showWidth = 100;
 		var showMargin = 0;
 		if(show.collisionCount>0){
@@ -20,9 +22,10 @@ function renderDay(day,dayName){
 				showMargin = 50;
 			}
 		}
-		var time = show.startTime.split('.');
-		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
-		var showTop = 2 * showStartMin;
+		//var time = show.startTime.split('.');
+		//var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
+		//var showTop = 2 * showStartMin;
+		var showTop = 2 * i * 70 + 50;
 		var showHTML = "<div id='"+show.showId+"' class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
 		if(show.friends.length>0){
 			var friendsHTML = "<div class='friends-row-wrapper'><div id='friends-row'>"

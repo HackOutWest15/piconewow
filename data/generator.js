@@ -23,13 +23,30 @@ return { artist: item.a, day:day, duration:60}
 
 var th = done.filter(function(i){
 	return i.day === "THURSDAY";
-})
+});
+for(var t = 0; t<th.length;t++){
+	if(t<10)
+		th[t].showId = 1 + "0" + t;
+	else
+		th[t].showId = 1 + "" + t;
+}
 
 var fr = done.filter(function(i){
 	return i.day === "FRIDAY";
-})
-
+});
+for(var t = 0; t<fr.length;t++){
+	if(t<10)
+		fr[t].showId = 2 + "0" + t;
+	else
+		fr[t].showId = 2 + "" + t;
+}
 var sa = done.filter(function(i){
 	return i.day === "SATURDAY";
-})
+});
+for(var t = 0; t<sa.length;t++){
+	if(t<10)
+		sa[t].showId = 3 + "0" + t;
+	else
+		sa[t].showId = 3 + "" + t;
+}
 console.log(done);
