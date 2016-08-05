@@ -15,6 +15,7 @@ function popShow(){
     });
     $("#button-play").on('click',playBtnClick);
     $("#button-card-schedule").on('click',goToSchedule);
+    $("#button-card-maybe").on('click',maybeClick);
     if(show[0]){
       var img = new Image();
       img.src = 'https://image.tmdb.org/t/p/'+IMG_SIZE+movies[0].poster;
@@ -106,4 +107,20 @@ function stopBtnClick(event){
 function goToSchedule(event){
   event.stopImmediatePropagation()
   window.location.href = '/schedule';
+}
+function maybeClick(cardid){
+  var show = _.filter(seen,function(s){
+    return cardid == s.showId;
+  });
+  if(show.length > 0){
+    seen[seen.length-1].audio.pause();
+    unseen.push(show[0]);
+    if(unseen[0] &&!unseen[0].audio){
+      loadArtistData(0,function(){
+        popShow();
+      });
+    }else{
+      popShow();
+    }
+  }
 }

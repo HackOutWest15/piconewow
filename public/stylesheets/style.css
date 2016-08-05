@@ -328,6 +328,9 @@ a {
 #button-card-schedule{
 	display: inline-block;
 }
+#button-card-maybe{
+	width: 50vw;
+}
 #button-play{
 	display: inline-block;
 }
