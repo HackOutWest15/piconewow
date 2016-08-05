@@ -35,7 +35,7 @@ Tindercardsjs = (function () {
       if (!jqo) {
         var str  = '<section class="Show-main"><div class="u-center-vertical-wrap"><div class="u-center-vertical"><div class="Show"> <div class="flip-container" style="pointer:cursor;"> <div class="flipper">'; 
         str +='<section class="Show-cover front""><section class="Artist-img"><div class="artist-image-div" style="background: url('+artistImgPath+');"></div></section><!-- .Artist-img -->';
-        str +='<section ="Artist-box"><div><h2 class="front-artist">'+artist+'</h2><p><span class="front-text">'+day+'</span><br />Stage: \t<span class="front-text">'+stage+'</span><br />Start time:\t<span class="front-text">'+startTime+'</span></p><div class="Button Button-rounded Button-small" id="button-play"  ><div class="Button-text-center">Listen<span class="play-btn"> ►</span></div></div><div class="Button Button-rounded Button-small" id="button-card-schedule"><div class="Button-text-center">Schedule</div></div><div class="Button Button-rounded Button-small" id="button-card-maybe" onClick="maybeClick('+cardid+')"><div class="Button-text-center">Ask me later!</div></div></section><!-- .artist-box --> </section><section class="Show-info back">';
+        str +='<section ="Artist-box"><div><h2 class="front-artist">'+artist+'</h2><p><span class="front-text">'+day+'</span><br />Stage: \t<span class="front-text">'+stage+'</span><br />Start time:\t<span class="front-text">'+startTime+'</span></p><div class="Button Button-rounded Button-small" id="button-play"  ><div class="Button-text-center">Listen<span class="play-btn"> ►</span></div></div><div class="Button Button-rounded Button-small" id="button-card-schedule"><div class="Button-text-center">Schedule</div></div></section><!-- .artist-box --> </section><section class="Show-info back">';
         str+='<section class="Artist-details"><h3>Artist bio: </h3> <p class="truncate"> '+artistBio+'</p> </section> <!-- .Artist-details --><h3>Friends attending:</h3>';
           if(friends.length>0){
             var friendsHTML = "<div class='friends-row-wrapper'><div id='friends-row'>"
@@ -48,7 +48,7 @@ Tindercardsjs = (function () {
             friendsHTML+="</div></div>";
             str+=friendsHTML;
           }
-        str+='</section> <!-- .Artist-info --> </div> <!-- .flipper --> </div> <!-- .flip-container --> </div></div></div></section>';
+        str+='<div class="Button Button-rounded Button-small" id="button-card-maybe" onClick="maybeClick('+cardid+')"><div class="Button-text-center">Ask me later!</div></div></section> <!-- .Artist-info --> </div> <!-- .flipper --> </div> <!-- .flip-container --> </div></div></div></section>';
         //jqo = $('<div class="tc-card">').attr('data-cardid', cardid).html('<div class="tc-card-img-cont"><img src="' + imgpath + '" class="tc-card-img"><div class="tc-card-body"><h2 class="tc-card-name">' + title + '</h2><span class="tc-card-desc">' + desc + '</span></div></div>');
         jqo = $('<div class="tc-card">').attr('data-cardid', cardid).html(str);
 
