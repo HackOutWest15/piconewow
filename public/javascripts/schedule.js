@@ -22,10 +22,10 @@ function renderDay(day,dayName){
 				showMargin = 50;
 			}
 		}
-		//var time = show.startTime.split('.');
-		//var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
-		//var showTop = 2 * showStartMin;
-		var showTop = 2 * i * 70 + 50;
+		var time = show.startTime.split('.');
+		var showStartMin = 60*parseInt(time[0]) + parseInt(time[1]) - 750;
+		var showTop = 2 * showStartMin + 50;
+		//var showTop = 2 * i * 70 + 50;
 		var showHTML = "<div id='"+show.showId+"' class='show-div' style='width:"+showWidth+"%;margin-left:"+showMargin+"%;top:"+showTop+"px'><div id='schedule-text'>";
 		if(show.friends.length>0){
 			var friendsHTML = "<div class='friends-row-wrapper'><div id='friends-row'>"
