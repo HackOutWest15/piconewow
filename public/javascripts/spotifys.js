@@ -84,7 +84,8 @@ function fetchArtistData(show,callback){
 			var img = new Image();
 			img.src=data.artists.items[0].images[1].url;
 			show.artistImgPath = data.artists.items[0].images[0].url;
-			var artistId = data.artists.items[0].id;
+			var artistName = data.artists.items[0].name;
+			var artistName = artistName.replace(' ','+');
 			$.ajax({
 				url:'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+artistName+'&api_key=0cc924cd3a50a215d375c61602af1a4b&format=json',
 				success:function(d){
