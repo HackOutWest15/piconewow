@@ -152,6 +152,28 @@ router.post('/skip',Auth.loggedIn,function(req,res){
   }
 });
 
+//MAYBE FUNC
+router.post('/maybe',Auth.loggedIn,function(req,res){
+  var show = req.body.show;
+  show = JSON.parse(show);
+  if(show){
+      User.findByIdAndUpdate(req.user._id,{
+  		$push:{unseen:show},
+  		$pull:{unseen:{_id:show._id}}
+  	},function(err,user){
+  		if(err){
+  		    console.log(err);
+          res.status(400).send("mongo error")
+  		}
+  		else{
+        res.status(200).send({});
+  		}
+  	});
+  }else{
+    res.status(400).send("no show");
+  }
+});
+
 //CLEAR FUNC
 router.post('/clear',Auth.loggedIn,function(req,res){
   Show.find({},function(err,showList){

@@ -123,7 +123,7 @@ app.use(function(err, req, res, next) {
 });
 //clearDB();
 //loadSchedule();
-
+//syncShows();
 
 //Clear DB script
 function clearDB(){
@@ -140,6 +140,49 @@ function loadSchedule(){
     loadFriday();
     loadSaturday();
 }
+function syncShows(){
+    Show.find({}, function(err, shows){
+        User.find({},function(err,users){
+            for(var u = 0; u<users.length;u++){
+                users[u].unseen = updateUserList(users[u].unseen,shows);
+                users[u].picked = updateUserList(users[u].picked,shows);
+                users[u].skipped = updateUserList(users[u].skipped,shows);
+                users[u].save(function(err,saved){console.log(err);});
+            }
+        });
+    });
+}
+
+function pushArtistToUnseen(artistShowId){
+    Show.find({showId: artistShowId}, function(err, shows){
+        if(!err && shows.length>0){
+            User.find({},function(err,users){
+                for(var u = 0; u<users.length;u++){
+                    users[u].unseen.push(shows[0]);
+                    users[u].save(function(err,saved){console.log(err);});
+                }
+            });
+        }
+    });
+};
+
+function updateUserList(list,shows){
+    for(var a = 0; a<list.length; a++){
+        var listItem = list[a];
+        for(s = 0; s<shows.length; s++) {
+            if(shows[s].showId == listItem.showId) {
+                listItem.startTime = shows[s].startTime;
+                listItem.stage = shows[s].stage;
+                listItem.day = shows[s].day;
+                listItem.duration = shows[s].duration;
+                listItem.artist = shows[s].artist;
+                listItem.collisions = shows[s].collisions;
+            }
+        }
+    }
+    return list;
+}
+
 function loadThursday(){
     var thursday = require('./data/2016/thursday.js');
     for(var i = 0; i<thursday.length;i++){
