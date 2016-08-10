@@ -83,9 +83,6 @@ function fetchArtistData(show,callback){
 		  	}
 		}
 	});
-	if(showId==209){
-		artist="EMMYLOU HARRIS";
-	}
 	$.ajax({
 		url: "https://api.spotify.com/v1/search",
 		data: {
