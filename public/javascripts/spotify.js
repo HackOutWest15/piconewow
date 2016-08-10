@@ -63,9 +63,6 @@ function fetchArtistData(show,callback){
 	var artist = show.artist;
 	var showId = show.showId;
 	var callbackCount = 0;
-	if(showId==301){
-		artist = "CHIC";
-	}
 	$.ajax({
 		url: "https://api.spotify.com/v1/search",
 		data: {
